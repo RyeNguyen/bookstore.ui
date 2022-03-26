@@ -1,0 +1,33 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as *;
+
+.hero {
+  padding-left: 6.4rem;
+  display: flex;
+  align-items: center;
+
+  &--left {
+    width: 50%;
+  }
+
+  &--right {
+    width: 50%;
+    position: relative;
+  }
+
+  &__img {
+    width: 80%;
+    transform: rotate(21deg);
+    object-fit: cover;
+    box-shadow: 4rem 2rem 2.4rem -8px rgba(black, 0.4);
+
+    &-info {
+      @include glassStyle;
+      width: 100%;
+      padding: 3.2rem 6.4rem;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}

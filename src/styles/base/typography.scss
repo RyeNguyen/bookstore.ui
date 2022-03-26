@@ -1,0 +1,37 @@
+@use '../abstracts/variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=Sansita+Swashed&display=swap');
+
+html {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.8rem;
+  color: $color-dark;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  font-family: 'Sansita Swashed', cursive;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 10rem;
+}
+
+h2 {
+  font-size: 6rem;
+}
+
+h3 {
+  font-size: 4rem;
+}

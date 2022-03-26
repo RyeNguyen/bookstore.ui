@@ -1,0 +1,67 @@
+@use './variables' as *;
+
+@mixin backgroundImage {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin centerBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin centerLayout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin sizeSmall {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+@mixin sizeMedium {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+@mixin sizeLarge {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+@mixin sizeExtraLarge {
+  width: 4.8rem;
+  height: 4.8rem;
+}
+
+@mixin iconSmall {
+  @include sizeSmall;
+  @include backgroundImage;
+}
+
+@mixin iconMedium {
+  @include sizeMedium;
+  @include backgroundImage;
+}
+
+@mixin iconLarge {
+  @include sizeLarge;
+  @include backgroundImage;
+}
+
+@mixin iconExtraLarge {
+  @include sizeExtraLarge;
+  @include backgroundImage;
+}
+
+@mixin glassStyle {
+  background: rgba( 255, 255, 255, 0.6 );
+  box-shadow: $box-shadow;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  border: 1px solid rgba( 255, 255, 255, 0.3 );
+}
