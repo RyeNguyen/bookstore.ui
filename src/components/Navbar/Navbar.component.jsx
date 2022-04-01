@@ -13,7 +13,7 @@ import './Navbar.styles.scss';
 const Navbar = () => {
     return (
         <div className='navbar'>
-            <img src={Logo} alt=""/>
+            <img src={Logo} alt="logo"/>
 
             <div className='navbar--main'>
                 <div className='navbar__dropdown'>

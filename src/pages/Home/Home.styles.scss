@@ -23,11 +23,18 @@
 
     &-info {
       @include glassStyle;
+      @include centerLayout;
       width: 100%;
       padding: 3.2rem 6.4rem;
       position: absolute;
       bottom: 0;
       right: 0;
+    }
+
+    &-button {
+      @include backgroundImage;
+      width: 9.6rem;
+      height: 9.6rem;
     }
   }
 }

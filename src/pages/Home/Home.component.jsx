@@ -1,13 +1,38 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import Navbar from "../../components/Navbar/Navbar.component";
 import InputField from "../../components/InputField/InputField.component";
 
-import BookDemo from '../../assets/images/book-demo.jpg';
+import CarouselButton from '../../assets/icons/icon-arrow--carousel-hero.svg';
+
+import {newAndHotBooks} from "../../data/MockupData";
 
 import './Home.styles.scss';
 
 const Home = () => {
+    const [heroBookName, setHeroBookName] = useState('');
+    const [heroBookAuthor, setHeroBookAuthor] = useState('');
+    const [heroBookCategories, setHeroBookCategories] = useState([]);
+    const [heroBookSeller, setHeroBookSeller] = useState('');
+    const [heroBookImg, setHeroBookImg] = useState('');
+    const [heroBookCounter, setHeroBookCounter] = useState(0);
+
+    useEffect(() => {
+        setHeroBookName(newAndHotBooks[heroBookCounter].name);
+        setHeroBookAuthor(newAndHotBooks[heroBookCounter].author);
+        setHeroBookCategories(newAndHotBooks[heroBookCounter].categories);
+        setHeroBookSeller(newAndHotBooks[heroBookCounter].seller);
+        setHeroBookImg(newAndHotBooks[heroBookCounter].image);
+    }, [heroBookCounter]);
+
+    const changeHeroBook = () => {
+        if (heroBookCounter === newAndHotBooks.length - 1) {
+            return setHeroBookCounter(0);
+        }
+
+        return setHeroBookCounter(heroBookCounter + 1);
+    }
+
     return (
         <>
             <Navbar/>
@@ -26,26 +51,47 @@ const Home = () => {
                 </div>
 
                 <div className='hero--right'>
-                    {/*<div className='hero__img' style={{backgroundImage: `url(${BookDemo})`}}/>*/}
-                    <img src={BookDemo} alt="" className='hero__img'/>
+                    <img src={heroBookImg} alt="" className='hero__img'/>
 
                     <div className='hero__img-info'>
                         <div className='hero__img-info--left'>
-                            <h2>Giây phút này</h2>
+                            <h2>{heroBookName}</h2>
 
                             <div style={{height: '3.2rem'}}/>
 
-                            <p>Tác giả: Guillaume Musso</p>
+                            <p>Tác giả: {heroBookAuthor}</p>
 
                             <div style={{height: '1.6rem'}}/>
 
-                            <p>Thể loại: Tiểu thuyết, Lãng mạn, Văn học nước ngoài</p>
+                            <p>Thể loại: {heroBookCategories}</p>
                         </div>
 
                         <div className='hero__img-info--right'>
-                            <div className='hero__img-button' style={{}}/>
+                            <div
+                                onClick={changeHeroBook}
+                                className='hero__img-button' style={{backgroundImage: `url(${CarouselButton})`}}
+                            />
                         </div>
                     </div>
+                    )})}
+
+                    {/*<Carousel*/}
+                    {/*    autoPlay={false}*/}
+                    {/*    emulateTouch*/}
+                    {/*    infiniteLoop*/}
+                    {/*    showArrows={false}*/}
+                    {/*    showIndicators={false}*/}
+                    {/*    showThumbs={false}*/}
+                    {/*    showStatus={false}*/}
+                    {/*    stopOnHover*/}
+                    {/*    swipeable*/}
+                    {/*    centerMode={false}*/}
+                    {/*    className='hero__carousel'*/}
+                    {/*>*/}
+                    {/*    {MockupData.map((bookData) => (*/}
+                    {/*        <img src={bookData.image} alt="" className='hero__img'/>*/}
+                    {/*    ))}*/}
+                    {/*</Carousel>*/}
                 </div>
             </section>
         </>
