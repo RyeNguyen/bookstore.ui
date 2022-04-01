@@ -47,7 +47,7 @@ const Home = () => {
 
                     <div style={{height: '4.8rem'}}/>
 
-                    <InputField/>
+                    <InputField inputType='search' buttonText='Tìm kiếm'/>
                 </div>
 
                 <div className='hero--right'>

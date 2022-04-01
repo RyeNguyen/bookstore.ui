@@ -8,6 +8,18 @@
     position: relative;
     width: 60%;
     display: flex;
+
+    .ant-input-affix-wrapper {
+      padding: 0 !important;
+    }
+
+    .ant-input:focus {
+      box-shadow: none;
+    }
+
+    button {
+      padding: 0 !important;
+    }
   }
 
   &__button {

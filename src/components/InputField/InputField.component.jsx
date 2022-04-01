@@ -1,17 +1,31 @@
 import React from 'react';
 
+import {Input} from 'antd';
+
 import './InputField.styles.scss';
 
-import Search from '../../assets/icons/icon-search.svg';
+import SearchIcon from '../../assets/icons/icon-search.svg';
 
-const InputField = () => {
+const {Search} = Input;
+
+const InputField = ({inputType, buttonText}) => {
+    const onSearch = value => console.log(value);
+
     return (
         <div className='input__field'>
-            <input type='text' className='input' placeholder='Tên sách, tên tác giả, thể loại...'/>
-            <button className='input__button'>
-                <div className='input__button-icon' style={{backgroundImage: `url(${Search})`}}/>
-                Tìm kiếm
-            </button>
+            {inputType === 'search' && (
+                <Search
+                    placeholder="Tên sách, tên tác giả, thể loại..."
+                    enterButton={
+                        <div className='input__button'>
+                            <div className='input__button-icon' style={{backgroundImage: `url(${SearchIcon})`}}/>
+                            {buttonText}
+                        </div>
+                    }
+                    size="large"
+                    onSearch={onSearch}
+                />
+            )}
         </div>
     )
 }

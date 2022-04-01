@@ -27,3 +27,20 @@ export const newAndHotBooks = [
         image: BookDemo3
     }
 ]
+
+export const BookCategories = [
+    'Văn học Việt Nam',
+    'Văn học nước ngoài',
+    'Tiểu thuyết',
+    'Hồi ký/Tự truyện',
+    'Trinh thám',
+    'Self-help',
+    'Lịch sử',
+    'Kinh tế',
+    'Chính trị',
+    'Sinh học',
+    'Tâm lý học',
+    'Triết học',
+    'Thiếu nhi',
+    'Truyện tranh'
+]
