@@ -39,3 +39,9 @@
     }
   }
 }
+
+.section {
+  &__title {
+    @include centerBox;
+  }
+}

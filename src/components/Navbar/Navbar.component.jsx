@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import InputField from "../InputField/InputField.component";
 
 import {BookCategories} from "../../data/MockupData";
 
@@ -27,12 +27,16 @@ const menu = (
     </Menu>
 );
 
-const Navbar = () => {
+const Navbar = ({searchIncluded = false}) => {
     return (
         <div className='navbar'>
             <img src={Logo} alt="logo"/>
 
             <div className='navbar--main'>
+                {searchIncluded && (
+                    <InputField inputType='search'/>
+                )}
+
                 <Dropdown overlay={menu}>
                     <div onClick={e => e.preventDefault()}>
                         Danh mục sách

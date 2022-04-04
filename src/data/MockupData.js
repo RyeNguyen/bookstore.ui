@@ -44,3 +44,20 @@ export const BookCategories = [
     'Thiếu nhi',
     'Truyện tranh'
 ]
+
+export const BookList = [
+    {
+        id: '001',
+        name: 'Giây phút này',
+        author: 'Guillaume Musso',
+        description: '',
+        categories: ['Tiểu thuyết, Lãng mạn, Văn học nước ngoài'],
+        image: BookDemo1,
+        price: '',
+        sellerId: '001',
+        sellerName: 'Nhà sách Nhã Nam',
+        sellerImage: '',
+        rating: 4.8,
+        reviews: []
+    }
+]

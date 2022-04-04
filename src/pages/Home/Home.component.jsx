@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import Slider from "react-slick";
 
 import Navbar from "../../components/Navbar/Navbar.component";
 import InputField from "../../components/InputField/InputField.component";
@@ -24,6 +25,14 @@ const Home = () => {
         setHeroBookSeller(newAndHotBooks[heroBookCounter].seller);
         setHeroBookImg(newAndHotBooks[heroBookCounter].image);
     }, [heroBookCounter]);
+
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1
+    };
 
     const changeHeroBook = () => {
         if (heroBookCounter === newAndHotBooks.length - 1) {
@@ -93,6 +102,46 @@ const Home = () => {
                     {/*    ))}*/}
                     {/*</Carousel>*/}
                 </div>
+            </section>
+
+            <div style={{height: '19rem'}}/>
+
+            <section className='section section__popular'>
+                <div className='section__title'>
+                    <h2>Sách bán chạy</h2>
+                </div>
+
+                <div style={{height: '1.6rem'}}/>
+
+                <Slider {...settings}>
+                    <div>
+                        <h3>1</h3>
+                    </div>
+                    <div>
+                        <h3>2</h3>
+                    </div>
+                    <div>
+                        <h3>3</h3>
+                    </div>
+                    <div>
+                        <h3>4</h3>
+                    </div>
+                    <div>
+                        <h3>5</h3>
+                    </div>
+                    <div>
+                        <h3>6</h3>
+                    </div>
+                    <div>
+                        <h3>7</h3>
+                    </div>
+                    <div>
+                        <h3>8</h3>
+                    </div>
+                    <div>
+                        <h3>9</h3>
+                    </div>
+                </Slider>
             </section>
         </>
     )
