@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import Slider from "react-slick";
 
 import Navbar from "../../components/Navbar/Navbar.component";
 import InputField from "../../components/InputField/InputField.component";
+import Carousel from "../../components/Carousel/Carousel.component";
 
 import CarouselButton from '../../assets/icons/icon-arrow--carousel-hero.svg';
 
@@ -25,14 +25,6 @@ const Home = () => {
         setHeroBookSeller(newAndHotBooks[heroBookCounter].seller);
         setHeroBookImg(newAndHotBooks[heroBookCounter].image);
     }, [heroBookCounter]);
-
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1
-    };
 
     const changeHeroBook = () => {
         if (heroBookCounter === newAndHotBooks.length - 1) {
@@ -82,25 +74,6 @@ const Home = () => {
                             />
                         </div>
                     </div>
-                    )})}
-
-                    {/*<Carousel*/}
-                    {/*    autoPlay={false}*/}
-                    {/*    emulateTouch*/}
-                    {/*    infiniteLoop*/}
-                    {/*    showArrows={false}*/}
-                    {/*    showIndicators={false}*/}
-                    {/*    showThumbs={false}*/}
-                    {/*    showStatus={false}*/}
-                    {/*    stopOnHover*/}
-                    {/*    swipeable*/}
-                    {/*    centerMode={false}*/}
-                    {/*    className='hero__carousel'*/}
-                    {/*>*/}
-                    {/*    {MockupData.map((bookData) => (*/}
-                    {/*        <img src={bookData.image} alt="" className='hero__img'/>*/}
-                    {/*    ))}*/}
-                    {/*</Carousel>*/}
                 </div>
             </section>
 
@@ -113,35 +86,7 @@ const Home = () => {
 
                 <div style={{height: '1.6rem'}}/>
 
-                <Slider {...settings}>
-                    <div>
-                        <h3>1</h3>
-                    </div>
-                    <div>
-                        <h3>2</h3>
-                    </div>
-                    <div>
-                        <h3>3</h3>
-                    </div>
-                    <div>
-                        <h3>4</h3>
-                    </div>
-                    <div>
-                        <h3>5</h3>
-                    </div>
-                    <div>
-                        <h3>6</h3>
-                    </div>
-                    <div>
-                        <h3>7</h3>
-                    </div>
-                    <div>
-                        <h3>8</h3>
-                    </div>
-                    <div>
-                        <h3>9</h3>
-                    </div>
-                </Slider>
+                <Carousel/>
             </section>
         </>
     )

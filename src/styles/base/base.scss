@@ -63,10 +63,18 @@ button {
   color: $color-dark !important;
   font-size: 1.8rem !important;
   font-family: 'Be Vietnam Pro', sans-serif !important;
+  cursor: pointer;
 
   &::after {
     box-shadow: none !important;
   }
+}
+
+.button--secondary {
+  background-image: none !important;
+  background-color: $color-dark !important;
+  color: $color-white !important;
+  border-color: $color-white !important;
 }
 
 .ant-dropdown {

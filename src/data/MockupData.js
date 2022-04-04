@@ -53,7 +53,97 @@ export const BookList = [
         description: '',
         categories: ['Tiểu thuyết, Lãng mạn, Văn học nước ngoài'],
         image: BookDemo1,
-        price: '',
+        price: '94000',
+        sellerId: '001',
+        sellerName: 'Nhà sách Nhã Nam',
+        sellerImage: '',
+        rating: 4.8,
+        reviews: []
+    },
+
+    {
+        id: '002',
+        name: 'Người đàn ông mang tên Ove',
+        author: 'Fredick Backman',
+        description: '',
+        categories: ['Tiểu thuyết, Lãng mạn, Văn học nước ngoài'],
+        image: BookDemo2,
+        price: '124000',
+        sellerId: '001',
+        sellerName: 'Nhà sách Nhã Nam',
+        sellerImage: '',
+        rating: 4.8,
+        reviews: []
+    },
+
+    {
+        id: '003',
+        name: 'Điềm tĩnh và nồng nhiệt (Lam)',
+        author: 'Tsuji Hitonari',
+        description: '',
+        categories: ['Tiểu thuyết, Lãng mạn, Văn học nước ngoài'],
+        image: BookDemo3,
+        price: '80000',
+        sellerId: '001',
+        sellerName: 'Nhà sách Nhã Nam',
+        sellerImage: '',
+        rating: 4.8,
+        reviews: []
+    },
+
+    {
+        id: '001',
+        name: 'Giây phút này',
+        author: 'Guillaume Musso',
+        description: '',
+        categories: ['Tiểu thuyết, Lãng mạn, Văn học nước ngoài'],
+        image: BookDemo1,
+        price: '94000',
+        sellerId: '001',
+        sellerName: 'Nhà sách Nhã Nam',
+        sellerImage: '',
+        rating: 4.8,
+        reviews: []
+    },
+
+    {
+        id: '001',
+        name: 'Giây phút này',
+        author: 'Guillaume Musso',
+        description: '',
+        categories: ['Tiểu thuyết, Lãng mạn, Văn học nước ngoài'],
+        image: BookDemo1,
+        price: '94000',
+        sellerId: '001',
+        sellerName: 'Nhà sách Nhã Nam',
+        sellerImage: '',
+        rating: 4.8,
+        reviews: []
+    },
+
+    {
+        id: '001',
+        name: 'Giây phút này',
+        author: 'Guillaume Musso',
+        description: '',
+        categories: ['Tiểu thuyết, Lãng mạn, Văn học nước ngoài'],
+        image: BookDemo1,
+        price: '94000',
+        sellerId: '001',
+        sellerName: 'Nhà sách Nhã Nam',
+        sellerImage: '',
+        rating: 4.8,
+        reviews: []
+    },
+
+    {
+        id: '001',
+        name: 'Giây phút này',
+        author: 'Guillaume Musso',
+        description: '',
+        categories: ['Tiểu thuyết, Lãng mạn, Văn học nước ngoài'],
+        image: BookDemo1,
+        price: '94000',
         sellerId: '001',
         sellerName: 'Nhà sách Nhã Nam',
         sellerImage: '',
