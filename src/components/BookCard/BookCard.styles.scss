@@ -1,0 +1,83 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.card {
+  background: linear-gradient(
+    180deg,
+    #fdffb4 6.94%,
+    rgba(250, 145, 49, 0) 100%
+  );
+  border: 1px solid $color-dark;
+  padding: 1.6rem;
+  position: relative;
+  box-shadow: $box-shadow;
+
+  &__thumbnail {
+    margin-top: -5.2rem;
+    height: 32.6rem;
+
+    img {
+      height: 100%;
+      box-shadow: $box-shadow;
+    }
+  }
+
+  &__interaction {
+    @include glassStyle;
+    padding: 2.4rem 2rem;
+    position: absolute;
+    top: 9.6rem;
+    right: -8px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    &-icon {
+      @include iconLarge;
+
+      &.favorite {
+        background-image: url("../../assets/icons/icon-heart.svg");
+      }
+
+      &.cart {
+        background-image: url("../../assets/icons/icon-shopping-bag--add.svg");
+      }
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__author {
+    font-style: italic;
+  }
+
+  &__seller {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &-img {
+      @include iconMedium;
+    }
+
+    &-name {
+      font-size: 1.4rem;
+      font-style: italic;
+    }
+  }
+
+  &__price {
+    padding: 8px 1.2rem;
+    position: absolute;
+    bottom: 8px;
+    right: -8px;
+    background-color: $color-white;
+    color: $color-primary;
+    border: 1px solid $color-dark;
+    box-shadow: $box-shadow;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+}

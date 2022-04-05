@@ -3,36 +3,41 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar.component";
 import InputField from "../../components/InputField/InputField.component";
 import Carousel from "../../components/Carousel/Carousel.component";
+import BookCard from "../../components/BookCard/BookCard.component";
 
 import CarouselButton from "../../assets/icons/icon-arrow--carousel-hero.svg";
 
-import { newAndHotBooks } from "../../data/MockupData";
+import {
+  newAndHotBooks,
+  BookCategories,
+  BookList,
+} from "../../data/MockupData";
 
 import "./Home.styles.scss";
 
 const Home = () => {
-    const [heroBookName, setHeroBookName] = useState('');
-    const [heroBookAuthor, setHeroBookAuthor] = useState('');
-    const [heroBookCategories, setHeroBookCategories] = useState([]);
-    const [heroBookSeller, setHeroBookSeller] = useState('');
-    const [heroBookImg, setHeroBookImg] = useState('');
-    const [heroBookCounter, setHeroBookCounter] = useState(0);
+  const [heroBookName, setHeroBookName] = useState("");
+  const [heroBookAuthor, setHeroBookAuthor] = useState("");
+  const [heroBookCategories, setHeroBookCategories] = useState([]);
+  const [heroBookSeller, setHeroBookSeller] = useState("");
+  const [heroBookImg, setHeroBookImg] = useState("");
+  const [heroBookCounter, setHeroBookCounter] = useState(0);
 
   useEffect(() => {
-        setHeroBookName(newAndHotBooks[heroBookCounter].name);
-        setHeroBookAuthor(newAndHotBooks[heroBookCounter].author);
-        setHeroBookCategories(newAndHotBooks[heroBookCounter].categories);
-        setHeroBookSeller(newAndHotBooks[heroBookCounter].seller);
-        setHeroBookImg(newAndHotBooks[heroBookCounter].image);
-    }, [heroBookCounter]);
+    setHeroBookName(newAndHotBooks[heroBookCounter].name);
+    setHeroBookAuthor(newAndHotBooks[heroBookCounter].author);
+    setHeroBookCategories(newAndHotBooks[heroBookCounter].categories);
+    setHeroBookSeller(newAndHotBooks[heroBookCounter].seller);
+    setHeroBookImg(newAndHotBooks[heroBookCounter].image);
+  }, [heroBookCounter]);
 
   const changeHeroBook = () => {
-        if (heroBookCounter === newAndHotBooks.length - 1) {
-            return setHeroBookCounter(0);
+    if (heroBookCounter === newAndHotBooks.length - 1) {
+      return setHeroBookCounter(0);
     }
 
-        return setHeroBookCounter(heroBookCounter + 1);
-    }
+    return setHeroBookCounter(heroBookCounter + 1);
+  };
 
   return (
     <>
@@ -88,6 +93,34 @@ const Home = () => {
         <div style={{ height: "1.6rem" }} />
 
         <Carousel />
+      </section>
+
+      <div style={{ height: "20.6rem" }} />
+
+      <section className="section section__categories">
+        <div className="section__title">
+          <h2>Khám phá danh mục sách đa dạng</h2>
+        </div>
+
+        <div style={{ height: "6.4rem" }} />
+
+        <div className="categories">
+          <div className="categories--left">
+            {BookCategories.map((category, index) => (
+              <div key={index} className="categories__item">
+                {category}
+              </div>
+            ))}
+          </div>
+
+          <div className="categories--right">
+            {BookList.map((book) => (
+              <div key={book.id} className="categories__card">
+                <BookCard data={book} />
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );
