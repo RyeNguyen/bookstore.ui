@@ -17,8 +17,8 @@ import './Navbar.styles.scss';
 
 const menu = (
     <Menu>
-        {BookCategories.map(category => (
-            <Menu.Item>
+        {BookCategories.map((category, index) => (
+            <Menu.Item key={index}>
                 <a target="_blank" rel="noopener noreferrer" href="">
                     {category}
                 </a>

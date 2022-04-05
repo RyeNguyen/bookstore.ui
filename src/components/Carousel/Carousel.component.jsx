@@ -75,8 +75,11 @@ const Carousel = ({ data }) => {
   const carouselSettings = {
     dots: false,
     infinite: true,
-    swipeToSlide: false,
+    draggable: false,
+    // autoplay: true,
+    // autoplaySpeed: 2000,
     speed: 500,
+    // cssEase: "linear",
     slidesToShow: 4,
     slidesToScroll: 1,
     className: "carousel",
@@ -93,6 +96,7 @@ const Carousel = ({ data }) => {
       <Slider {...carouselSettings}>
         {BookList.map((book, index) => (
           <Popover
+            key={book.id}
             overlayStyle={overlayStyle}
             overlayInnerStyle={popoverStyle}
             placement="right"
@@ -102,24 +106,28 @@ const Carousel = ({ data }) => {
                   {likes[index] && <img src={Heart} alt="favorite" />}
                 </div>
 
-                <h3>{book.name}</h3>
+                <div className="popover--main">
+                  <h3>{book.name}</h3>
 
-                <div style={{ height: "1.6rem" }} />
+                  <div style={{ height: "1.6rem" }} />
 
-                <div>Tác giả: {book.author}</div>
+                  <div>Tác giả: {book.author}</div>
 
-                <div style={{ height: "1.6rem" }} />
+                  <div style={{ height: "1.6rem" }} />
 
-                <div>Thể loại: {book.categories}</div>
+                  <div>Thể loại: {book.categories}</div>
 
-                <div style={{ height: "5.6rem" }} />
+                  <div style={{ height: "5.6rem" }} />
 
-                <div className="popover__seller">
-                  <div
-                    className="popover__seller-img"
-                    style={{ backgroundImage: `url(${book.sellerImage})` }}
-                  />
-                  <div className="popover__seller-name">{book.sellerName}</div>
+                  <div className="popover__seller">
+                    <div
+                      className="popover__seller-img"
+                      style={{ backgroundImage: `url(${book.sellerImage})` }}
+                    />
+                    <div className="popover__seller-name">
+                      {book.sellerName}
+                    </div>
+                  </div>
                 </div>
 
                 <div className="popover__price">
