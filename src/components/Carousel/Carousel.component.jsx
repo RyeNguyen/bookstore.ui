@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 
 import Slider from "react-slick";
 import { Popover } from "antd";
+import Avvvatars from 'avvvatars-react'
 
 import { BookList } from "../../data/MockupData";
 
 import CarouselArrow from "../../assets/icons/icon-arrow--carousel.svg";
 import Heart from "../../assets/icons/icon-heart--active.svg";
-import Self from "../../assets/images/bookshelf.png";
+import Shelf from "../../assets/images/bookshelf.png";
 
 import "./Carousel.styles.scss";
 
@@ -120,10 +121,15 @@ const Carousel = ({ data }) => {
                   <div style={{ height: "5.6rem" }} />
 
                   <div className="popover__seller">
-                    <div
-                      className="popover__seller-img"
-                      style={{ backgroundImage: `url(${book.sellerImage})` }}
-                    />
+                    {book.sellerImage ? (
+                        <div
+                            className="popover__seller-img"
+                            style={{ backgroundImage: `url(${book.sellerImage})` }}
+                        />
+                    ) : (
+                        <Avvvatars style="shape" size={24} value={book.sellerName} />
+                    )}
+
                     <div className="popover__seller-name">
                       {book.sellerName}
                     </div>
@@ -144,7 +150,7 @@ const Carousel = ({ data }) => {
       </Slider>
 
       <div className="carousel__background">
-        <img src={Self} alt="" />
+        <img src={Shelf} alt="bookshelf-img" />
       </div>
     </div>
   );
