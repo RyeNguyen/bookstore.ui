@@ -71,6 +71,13 @@
     padding: 1.6rem 6.4rem;
     margin-bottom: 1.6rem;
     cursor: pointer;
+
+    &.active {
+      background-image: $color-gradient;
+      border: 1px solid $color-dark;
+      border-right: none;
+      font-weight: bold;
+    }
   }
 
   &__card {

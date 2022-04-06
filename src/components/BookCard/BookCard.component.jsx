@@ -1,28 +1,23 @@
 import React from 'react';
 
 import Avvvatars from 'avvvatars-react'
-import Tilt from 'react-tilt'
+import Tilt from 'react-parallax-tilt';
 
 import './BookCard.styles.scss';
 
 const BookCard = (book) => {
-    const tiltOptions = {
-        reverse:        false,  // reverse the tilt direction
-        max:            20,     // max tilt rotation (degrees)
-        perspective:    3000,   // Transform perspective, the lower the more extreme the tilt gets.
-        scale:          1,      // 2 = 200%, 1.5 = 150%, etc..
-        speed:          300,    // Speed of the enter/exit transition
-        transition:     true,   // Set a transition on enter/exit.
-        axis:           null,   // What axis should be disabled. Can be X or Y.
-        reset:          true,    // If the tilt effect has to be reset on exit.
-        easing:         "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
-    }
-
     return (
-        <Tilt options={tiltOptions}>
-            <div className="card">
+        <Tilt
+            className="card"
+            perspective={7000}
+            glareEnable={true}
+            glareMaxOpacity={0.4}
+            glareColor="#FDE465"
+            glarePosition="all"
+        >
+            <div className="card--inner">
                 <div className="card__thumbnail">
-                    <img src={book.data.image} alt="card-thumbnail" />
+                    <img src={book.data.image} alt="card-thumbnail"/>
                 </div>
 
                 <div className="card__interaction">
@@ -42,7 +37,7 @@ const BookCard = (book) => {
                     {book.data.sellerImage ? (
                         <div className="card__seller-img" style={{backgroundImage: `url(${book.data.sellerImage})`}}/>
                     ) : (
-                        <Avvvatars style="shape" size={24} value={book.data.sellerName} />
+                        <Avvvatars style="shape" size={24} value={book.data.sellerName}/>
                     )}
                     <div className="card__seller-name">{book.data.sellerName}</div>
                 </div>

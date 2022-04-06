@@ -3,14 +3,22 @@
 
 .card {
   background: linear-gradient(
-    180deg,
-    #fdffb4 6.94%,
-    rgba(250, 145, 49, 0) 100%
+                  180deg,
+                  #fdffb4 6.94%,
+                  rgba(250, 145, 49, 0) 100%
   );
   border: 1px solid $color-dark;
   padding: 1.6rem;
   position: relative;
   box-shadow: $box-shadow;
+  transform-style: preserve-3d;
+  cursor: pointer;
+
+  &--inner {
+    -webkit-transform: translateZ(4rem);
+    transform: translateZ(4rem);
+    position: relative;
+  }
 
   &__thumbnail {
     margin-top: -5.2rem;
@@ -26,8 +34,8 @@
     @include glassStyle;
     padding: 2.4rem 2rem;
     position: absolute;
-    top: 9.6rem;
-    right: -8px;
+    top: 14.8rem;
+    right: -2.4rem;
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
@@ -47,6 +55,9 @@
 
   &__title {
     font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__author {
@@ -71,8 +82,8 @@
   &__price {
     padding: 8px 1.2rem;
     position: absolute;
-    bottom: 8px;
-    right: -8px;
+    bottom: -8px;
+    right: -2.4rem;
     background-color: $color-white;
     color: $color-primary;
     border: 1px solid $color-dark;
