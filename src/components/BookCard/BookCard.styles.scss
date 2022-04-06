@@ -71,6 +71,7 @@
 
     &-img {
       @include iconMedium;
+      border-radius: 50%;
     }
 
     &-name {

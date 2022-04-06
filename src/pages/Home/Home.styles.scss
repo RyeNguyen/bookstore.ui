@@ -44,6 +44,10 @@
   &__title {
     @include centerBox;
   }
+
+  &__seller {
+    overflow: hidden;
+  }
 }
 
 .categories {

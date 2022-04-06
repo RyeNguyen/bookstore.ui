@@ -19,7 +19,7 @@
 
   &__item {
     height: 32.6rem;
-    box-shadow: 0 1rem 2.4rem -8px rgba(black, 0.5);
+    box-shadow: $box-shadow;
 
     img {
       height: 100%;
@@ -52,58 +52,4 @@
       }
     }
   }
-}
-
-.popover {
-  max-width: 80vw;
-
-  &--main {
-    width: 80%;
-  }
-
-  &__favorite {
-    @include iconExtraLarge;
-    background-image: url("../../assets/icons/icon-heart.svg");
-    position: absolute;
-    top: 2.4rem;
-    right: 2.4rem;
-  }
-
-  &__seller {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    &-img {
-      @include iconMedium;
-      border-radius: 50%;
-      background-color: $color-primary;
-    }
-
-    &-name {
-      font-size: 1.4rem;
-      font-style: italic;
-    }
-  }
-
-  &__price {
-    position: absolute;
-    bottom: 8px;
-    right: -4px;
-    padding: 8px 2.4rem;
-    border: 1px solid $color-dark;
-    background-image: $color-gradient;
-  }
-}
-
-.ant-popover-inner-content {
-  padding: 0 !important;
-}
-
-.ant-popover-arrow {
-  display: none !important;
-}
-
-.ant-popover-placement-right, .ant-popover-placement-left {
-  padding: 0 !important;
 }

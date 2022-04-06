@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 import Slider from "react-slick";
-import { Popover } from "antd";
-import Avvvatars from 'avvvatars-react'
+
+import BookPopover from "../BookPopover/BookPopover.component";
 
 import { BookList } from "../../data/MockupData";
 
 import CarouselArrow from "../../assets/icons/icon-arrow--carousel.svg";
-import Heart from "../../assets/icons/icon-heart--active.svg";
 import Shelf from "../../assets/images/bookshelf.png";
 
 import "./Carousel.styles.scss";
@@ -55,24 +54,6 @@ const CarouselNextArrow = (props) => {
 };
 
 const Carousel = ({ data }) => {
-  const [likes, setLikes] = useState(Array(BookList.length).fill(false));
-
-  const popoverStyle = {
-    padding: "2.4rem",
-    background: "rgba( 255, 255, 255, 0.75 )",
-    boxShadow: "0 10px 32px -8px rgba(#333333, 0.5)",
-    backdropFilter: "blur(10px) saturate(200%)",
-    WebkitBackdropFilter: "blur(10px) saturate(200%)",
-    border: "1px solid rgba( 255, 255, 255, 0.3 )",
-    fontSize: "1.8rem",
-    fontFamily: "'Be Vietnam Pro', sans-serif",
-    position: "relative",
-  };
-
-  const overlayStyle = {
-    display: "hidden",
-  };
-
   const carouselSettings = {
     dots: false,
     infinite: true,
@@ -88,64 +69,15 @@ const Carousel = ({ data }) => {
     prevArrow: <CarouselPrevArrow />,
   };
 
-  const addToFavorite = (event) => {
-    console.log(event);
-  };
-
   return (
     <div className="carousel__container">
       <Slider {...carouselSettings}>
         {BookList.map((book, index) => (
-          <Popover
-            key={book.id}
-            overlayStyle={overlayStyle}
-            overlayInnerStyle={popoverStyle}
-            placement="right"
-            content={() => (
-              <div className="popover">
-                <div className="popover__favorite" onClick={addToFavorite}>
-                  {likes[index] && <img src={Heart} alt="favorite" />}
-                </div>
-
-                <div className="popover--main">
-                  <h3>{book.name}</h3>
-
-                  <div style={{ height: "1.6rem" }} />
-
-                  <div>Tác giả: {book.author}</div>
-
-                  <div style={{ height: "1.6rem" }} />
-
-                  <div>Thể loại: {book.categories}</div>
-
-                  <div style={{ height: "5.6rem" }} />
-
-                  <div className="popover__seller">
-                    {book.sellerImage ? (
-                        <div
-                            className="popover__seller-img"
-                            style={{ backgroundImage: `url(${book.sellerImage})` }}
-                        />
-                    ) : (
-                        <Avvvatars style="shape" size={24} value={book.sellerName} />
-                    )}
-
-                    <div className="popover__seller-name">
-                      {book.sellerName}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="popover__price">
-                  <h3>{`${book.price}đ`}</h3>
-                </div>
-              </div>
-            )}
-          >
+          <BookPopover key={index} data={book}>
             <div className="carousel__item">
               <img src={book.image} alt="book-thumbnail" />
             </div>
-          </Popover>
+          </BookPopover>
         ))}
       </Slider>
 
