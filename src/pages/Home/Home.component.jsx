@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 
+import Avvvatars from "avvvatars-react";
+
 import Navbar from "../../components/Navbar/Navbar.component";
 import InputField from "../../components/InputField/InputField.component";
 import Carousel from "../../components/Carousel/Carousel.component";
 import BookCard from "../../components/BookCard/BookCard.component";
 import BestSellerRow from "../../components/BestSellerRow/BestSellerRow.component";
+import Footer from "../../components/Footer/Footer.component";
 
 import CarouselButton from "../../assets/icons/icon-arrow--carousel-hero.svg";
 
@@ -17,7 +20,8 @@ const Home = () => {
   const [heroBookAuthor, setHeroBookAuthor] = useState("");
   const [heroBookCategories, setHeroBookCategories] = useState([]);
   const [heroBookSeller, setHeroBookSeller] = useState("");
-  const [heroBookImg, setHeroBookImg] = useState("");
+  const [heroBookSellerImg, setHeroBookSellerImg] = useState(null);
+  const [heroBookImg, setHeroBookImg] = useState(null);
   const [heroBookCounter, setHeroBookCounter] = useState(0);
 
   const [currentCategory, setCurrentCategory] = useState(0);
@@ -27,6 +31,7 @@ const Home = () => {
     setHeroBookAuthor(BookList[heroBookCounter].author);
     setHeroBookCategories(BookList[heroBookCounter].categories);
     setHeroBookSeller(BookList[heroBookCounter].sellerName);
+    setHeroBookSellerImg(BookList[heroBookCounter].sellerImage);
     setHeroBookImg(BookList[heroBookCounter].image);
   }, [heroBookCounter]);
 
@@ -69,7 +74,33 @@ const Home = () => {
 
               <div style={{ height: "1.6rem" }} />
 
-              <p>Thể loại: {heroBookCategories}</p>
+              <p>
+                Thể loại:{" "}
+                {heroBookCategories.map((category, index) =>
+                  index === heroBookCategories.length - 1 ? (
+                    <span>{category}</span>
+                  ) : (
+                    <span>{category}, </span>
+                  )
+                )}
+              </p>
+
+              <div className="hero__seller">
+                {heroBookSellerImg ? (
+                  <div
+                    className="hero__seller-img"
+                    style={{ backgroundImage: `url(${heroBookSellerImg})` }}
+                  />
+                ) : (
+                  <Avvvatars
+                    style="shape"
+                    size={24}
+                    value={heroBookSellerImg}
+                  />
+                )}
+
+                <div className="hero__seller-name">{heroBookSeller}</div>
+              </div>
             </div>
 
             <div className="hero__img-info--right">
@@ -160,6 +191,8 @@ const Home = () => {
           );
         })}
       </section>
+
+      <Footer />
     </>
   );
 };

@@ -40,7 +40,16 @@ const BookPopover = ({ data, children }) => {
 
             <div style={{ height: "1.6rem" }} />
 
-            <div>Thể loại: {data.categories}</div>
+            <div>
+              Thể loại:{" "}
+              {data.categories.map((category, index) =>
+                index === data.categories.length - 1 ? (
+                  <span>{category}</span>
+                ) : (
+                  <span>{category}, </span>
+                )
+              )}
+            </div>
 
             <div style={{ height: "5.6rem" }} />
 

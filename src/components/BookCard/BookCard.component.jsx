@@ -1,20 +1,14 @@
 import React from 'react';
 
-import Avvvatars from 'avvvatars-react'
-import Tilt from 'react-parallax-tilt';
+import Avvvatars from 'avvvatars-react';
+
+import TiltContainer from '../TiltContainer/TiltContainer.component';
 
 import './BookCard.styles.scss';
 
 const BookCard = (book) => {
     return (
-        <Tilt
-            className="card"
-            perspective={7000}
-            glareEnable={true}
-            glareMaxOpacity={0.4}
-            glareColor="#FDE465"
-            glarePosition="all"
-        >
+        <TiltContainer data="card">
             <div className="card--inner">
                 <div className="card__thumbnail">
                     <img src={book.data.image} alt="card-thumbnail"/>
@@ -44,7 +38,7 @@ const BookCard = (book) => {
 
                 <div className="card__price">{book.data.price}đ</div>
             </div>
-        </Tilt>
+        </TiltContainer>
     )
 }
 

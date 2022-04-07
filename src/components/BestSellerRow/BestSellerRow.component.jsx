@@ -1,6 +1,7 @@
 import React from "react";
 
 import BookPopover from "../BookPopover/BookPopover.component";
+import TiltContainer from "../TiltContainer/TiltContainer.component";
 
 import Shelf from "../../assets/images/bookshelf--side.png";
 
@@ -9,14 +10,16 @@ import "./BestSellerRow.styles.scss";
 const BestSellerRow = (data) => {
   return (
     <div className="bestseller">
-      <div className="bestseller__card">
-        <div
-          className="bestseller__img"
-          style={{ backgroundImage: `url(${data.seller.sellerImage})` }}
-        />
-        <div className="bestseller__name">{data.seller.sellerName}</div>
-        <div className="bestseller__desc">{data.seller.description}</div>
-      </div>
+      <TiltContainer data="bestseller__card">
+        <div className="bestseller__card--inner">
+          <div
+            className="bestseller__img"
+            style={{ backgroundImage: `url(${data.seller.sellerImage})` }}
+          />
+          <div className="bestseller__name">{data.seller.sellerName}</div>
+          <div className="bestseller__desc">{data.seller.description}</div>
+        </div>
+      </TiltContainer>
 
       <div className="bestseller__books">
         {data.topBooks.map((book) => (

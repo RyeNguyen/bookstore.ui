@@ -25,6 +25,12 @@
     background: linear-gradient(180deg, #fdffb4 6.94%, #ffdb7d 100%);
     border: 1px solid $color-dark;
     box-shadow: $box-shadow;
+    transform-style: preserve-3d;
+    cursor: pointer;
+
+    &--inner {
+      transform: translateZ(4rem);
+    }
   }
 
   &__img {

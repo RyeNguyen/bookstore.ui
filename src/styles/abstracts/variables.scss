@@ -2,6 +2,7 @@ $color-primary: #FF981F;
 $color-secondary: #FDE465;
 
 $color-gradient: linear-gradient(94.99deg, $color-secondary 11.42%, rgba(255, 152, 31, 0.81) 99.13%, rgba(255, 152, 31, 0.81) 99.13%);
+$color-gradient--reverse: linear-gradient(85.01deg, rgba(255, 152, 31, 0.81) 11.42%, $color-secondary 99.13%);
 
 $color-white: #FFFFFF;
 $color-dark: #333333;
