@@ -1,0 +1,21 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as *;
+
+.headline {
+    position: relative;
+    z-index: 1;
+
+    &__container {
+        width: auto;
+        position: relative;
+    }
+
+    &__decoration {
+        width: 75%;
+        height: 2.4rem;
+        position: absolute;
+        left: -4px;
+        background-image: $color-gradient--reverse;
+        z-index: 0;
+    }
+}

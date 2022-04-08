@@ -1,4 +1,5 @@
 import React from "react";
+import { m } from "framer-motion";
 
 import Logo from "../../assets/images/logo--secondary.svg";
 import Facebook from "../../assets/icons/icon-fb.svg";
@@ -7,6 +8,11 @@ import Discord from "../../assets/icons/icon-discord.svg";
 import Github from "../../assets/icons/icon-github.svg";
 
 import "./Footer.styles.scss";
+
+const separatorVariants = {
+  hidden: { height: 0 },
+  visible: { height: "75%", transition: { delay: 0.3, duration: 0.5 } },
+};
 
 const Footer = () => (
   <div className="footer">
@@ -45,6 +51,19 @@ const Footer = () => (
         </div>
       </div>
     </div>
+
+    <m.div
+      variants={separatorVariants}
+      initial="hidden"
+      animate="visible"
+      className="footer__separator left"
+    />
+    <m.div
+      variants={separatorVariants}
+      initial="hidden"
+      whileInView="visible"
+      className="footer__separator right"
+    />
 
     <div className="footer--right">
       <div className="footer__column">

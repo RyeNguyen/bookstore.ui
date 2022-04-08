@@ -10,13 +10,23 @@
   position: relative;
 
   &:nth-child(even) {
-      flex-direction: row-reverse;
+    flex-direction: row-reverse;
 
-      .bestseller__background {
-          transform: scaleX(-1);
-          left: 0;
-          right: auto;
+    .bestseller__background {
+      transform: scaleX(-1);
+      left: 0;
+      right: auto;
+    }
+
+    .bestseller__separator {
+      right: 5%;
+      top: 25%;
+
+      &.right {
+        left: 25%;
+        top: 30%;
       }
+    }
   }
 
   &__card {
@@ -30,6 +40,20 @@
 
     &--inner {
       transform: translateZ(4rem);
+    }
+  }
+
+  &__separator {
+    width: 40%;
+    height: 1px;
+    position: absolute;
+    top: 25%;
+    background-color: $color-dark;
+    z-index: -1;
+
+    &.right {
+      right: 25%;
+      top: 30%;
     }
   }
 
@@ -53,24 +77,24 @@
   }
 
   &__books {
-      display: flex;
-      align-items: center;
-      gap: 12rem;
+    display: flex;
+    align-items: center;
+    gap: 12rem;
   }
 
   &__book {
-      height: 32.6rem;
-      box-shadow: $box-shadow;
+    height: 32.6rem;
+    box-shadow: $box-shadow;
 
-      img {
-          height: 100%;
-      }
+    img {
+      height: 100%;
+    }
   }
 
   &__background {
-      position: absolute;
-      bottom: -12rem;
-      right: 0;
-      z-index: -1;
+    position: absolute;
+    bottom: -12rem;
+    right: 0;
+    z-index: -1;
   }
 }

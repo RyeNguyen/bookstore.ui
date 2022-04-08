@@ -73,7 +73,7 @@ const Navbar = ({searchIncluded = false}) => {
 
                 <div className='navbar__profile'>
                     {/*<div className='navbar__profile-picture'/>*/}
-                    <Avvvatars style="shape" size={48} value='RyeNguyen'/>
+                    <Avvvatars style="shape" size={48} value='random person'/>
                     <div className='navbar__icon large' style={{backgroundImage: `url(${More})`}}/>
                 </div>
             </div>

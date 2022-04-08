@@ -7,6 +7,7 @@
   background-image: $color-gradient--reverse;
   display: flex;
   justify-content: space-between;
+  position: relative;
 
   &--left {
     width: 25%;
@@ -60,5 +61,22 @@
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
+  }
+
+  &__separator {
+    width: 1px;
+    height: 75%;
+    background-color: $color-dark;
+    position: absolute;
+
+    &.left {
+      bottom: 0;
+      left: 40%;
+    }
+
+    &.right {
+      top: 0;
+      left: 44%;
+    }
   }
 }
