@@ -26,10 +26,10 @@ h1, h2 {
 
 h1 {
   font-size: 10rem !important;
-  animation-name: moveInLeft;
-  animation-duration: 0.5s;
-  animation-delay: 0.75s;
-  animation-timing-function: ease-in-out;
+  //animation-name: moveInLeft;
+  //animation-duration: 0.5s;
+  //animation-delay: 0.75s;
+  //animation-timing-function: ease-in-out;
 
   /* Set the animation at 0% before the animation starts */
   animation-fill-mode: backwards;

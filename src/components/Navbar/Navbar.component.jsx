@@ -1,6 +1,8 @@
 import React from 'react';
-
 import { Menu, Dropdown } from 'antd';
+import {m} from 'framer-motion';
+import Avvvatars from "avvvatars-react";
+
 import InputField from "../InputField/InputField.component";
 
 import {BookCategories} from "../../data/MockupData";
@@ -15,6 +17,7 @@ import Expand from '../../assets/icons/icon-arrow-expand.svg';
 
 import './Navbar.styles.scss';
 
+//Menu danh mục sách xổ xuống
 const menu = (
     <Menu>
         {BookCategories.map((category, index) => (
@@ -44,16 +47,33 @@ const Navbar = ({searchIncluded = false}) => {
                     </div>
                 </Dropdown>
 
-                <div className='navbar__icon' style={{backgroundImage: `url(${Notification})`}}/>
+                <m.div
+                    className='navbar__icon'
+                    style={{backgroundImage: `url(${Notification})`}}
+                    whileHover={{y: -8}}
+                />
 
-                <div className='navbar__icon' style={{backgroundImage: `url(${Chat})`}}/>
+                <m.div
+                    className='navbar__icon'
+                    style={{backgroundImage: `url(${Chat})`}}
+                    whileHover={{y: -8}}
+                />
 
-                <div className='navbar__icon' style={{backgroundImage: `url(${Heart})`}}/>
+                <m.div
+                    className='navbar__icon'
+                    style={{backgroundImage: `url(${Heart})`}}
+                    whileHover={{y: -8}}
+                />
 
-                <div className='navbar__icon' style={{backgroundImage: `url(${Cart})`}}/>
+                <m.div
+                    className='navbar__icon'
+                    style={{backgroundImage: `url(${Cart})`}}
+                    whileHover={{y: -8}}
+                />
 
                 <div className='navbar__profile'>
-                    <div className='navbar__profile-picture'/>
+                    {/*<div className='navbar__profile-picture'/>*/}
+                    <Avvvatars style="shape" size={48} value='RyeNguyen'/>
                     <div className='navbar__icon large' style={{backgroundImage: `url(${More})`}}/>
                 </div>
             </div>
