@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 
 import Avvvatars from "avvvatars-react";
-import {m} from "framer-motion";
+import {m, useCycle} from "framer-motion";
 
 import Navbar from "../../components/Navbar/Navbar.component";
 import InputField from "../../components/InputField/InputField.component";
@@ -11,6 +11,7 @@ import BestSellerRow from "../../components/BestSellerRow/BestSellerRow.componen
 import Footer from "../../components/Footer/Footer.component";
 
 import CarouselButton from "../../assets/icons/icon-arrow--carousel-hero.svg";
+import Doodle1 from '../../assets/images/doodle-1.svg';
 
 import {BestSellers, BookCategories, BookList} from "../../data/MockupData";
 
@@ -76,6 +77,23 @@ const bookVariants = {
     }
 }
 
+const doodleVariants = {
+    animationOne: {
+        opacity: 0.5,
+        scale: 1.5,
+        transition: {
+            duration: 3
+        }
+    },
+    animationTwo: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            duration: 3
+        }
+    }
+}
+
 const Home = () => {
     const [heroBookName, setHeroBookName] = useState("");
     const [heroBookAuthor, setHeroBookAuthor] = useState("");
@@ -86,6 +104,10 @@ const Home = () => {
     const [heroBookCounter, setHeroBookCounter] = useState(0);
 
     const [currentCategory, setCurrentCategory] = useState(0);
+
+    const [doodleAnimation, cycleDoodleAnimation] = useCycle('animationOne', 'animationTwo');
+
+    console.log(doodleAnimation)
 
     useEffect(() => {
         setHeroBookName(BookList[heroBookCounter].name);
@@ -110,6 +132,15 @@ const Home = () => {
 
             {/* hero section */}
             <section className="hero">
+                <m.div
+                    variants={doodleVariants}
+                    animate={doodleAnimation}
+                    onAnimationComplete={() => cycleDoodleAnimation()}
+                    className='hero__doodle'
+                >
+                    <img src={Doodle1} alt=""/>
+                </m.div>
+
                 <div className="hero--left">
                     <m.h1
                         variants={headlineVariants}
