@@ -45,11 +45,143 @@
     &.large {
       @include iconLarge;
     }
+
+    &.active {
+      .navbar__icon {
+        &--burger {
+          .navbar__icon--line {
+            &:first-child {
+              stroke-dasharray: 5 185.62753295898438;
+              stroke-dashoffset: -150px;
+            }
+
+            &:nth-child(2) {
+              stroke-dasharray: 5 178.6514129638672;
+              stroke-dashoffset: -147px;
+            }
+
+            &:nth-child(3) {
+              stroke-dasharray: 5 197.92425537109375;
+              stroke-dashoffset: -186px;
+            }
+
+            &:nth-child(4) {
+              stroke-dasharray: 5 190.6597137451172;
+              stroke-dashoffset: -169px;
+            }
+
+            &:nth-child(5) {
+              stroke-dasharray: 5 208.52874755859375;
+              stroke-dashoffset: -149px;
+            }
+
+            &:nth-child(6) {
+              stroke-dasharray: 5 186.59703063964844;
+              stroke-dashoffset: -186px;
+            }
+          }
+        }
+
+        &--line {
+          transition: stroke-dasharray 500ms, stroke-dashoffset 500ms, transform 500ms;
+        }
+
+        &--close {
+          transform: scale(1);
+          transition: transform 400ms 350ms;
+        }
+      }
+    }
+
+    &--burger {
+      filter: url(#gooeyness);
+
+      .navbar__icon--line {
+        &:first-child {
+          stroke-dasharray: 21 185.62753295898438;
+          transition-delay: 0s;
+        }
+
+        &:nth-child(2) {
+          stroke-dasharray: 21 178.6514129638672;
+          transition-delay: 30ms;
+        }
+
+        &:nth-child(3) {
+          stroke-dasharray: 21 197.92425537109375;
+          transition-delay: 60ms;
+        }
+
+        &:nth-child(4) {
+          stroke-dasharray: 21 190.6597137451172;
+          transition-delay: 90ms;
+        }
+
+        &:nth-child(5) {
+          stroke-dasharray: 21 208.52874755859375;
+          transition-delay: 120ms;
+        }
+
+        &:nth-child(6) {
+          stroke-dasharray: 21 186.59703063964844;
+          transition-delay: 150ms;
+        }
+      }
+    }
+
+    &--close {
+      transform: scale(0);
+      transition: transform 400ms;
+
+      .navbar__icon--line {
+        stroke-width: 5.5px;
+      }
+    }
+
+    &--line {
+      fill: none;
+      stroke: $color-dark;
+      stroke-width: 6px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transform-origin: 50%;
+      transition: stroke-dasharray 500ms 200ms, stroke-dashoffset 500ms 200ms, transform 500ms 200ms;
+    }
+
+    svg {
+      @include sizeExtraLarge;
+      position: absolute;
+    }
   }
 
   .ant-dropdown-trigger {
     display: flex;
     align-items: center;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    @include centerLayout;
+    padding: 4.8rem;
+
+    &__drawer {
+      @include glassStyle;
+      @include centerBox;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 4rem;
+      right: 4rem;
+      z-index: 21;
+    }
+
+    &__icon {
+      position: fixed;
+      top: 4.8rem;
+      right: 4.8rem;
+      z-index: 22;
+    }
   }
 }

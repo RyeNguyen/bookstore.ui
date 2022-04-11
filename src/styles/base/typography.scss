@@ -22,6 +22,7 @@ h1, h2 {
   padding: 0 !important;
   letter-spacing: 0.02em !important;
   font-weight: 500 !important;
+  color: $color-dark !important;
 }
 
 h1 {
@@ -43,4 +44,44 @@ h3 {
   font-size: 3rem !important;
   font-weight: bold !important;
   margin: 0;
+}
+
+@media (max-width: 1432px) {
+  h1{
+    line-height: 12rem;
+  }
+
+  h2 {
+    line-height:  6.5rem;
+  }
+}
+
+@media (max-width: 1366px) {
+  h1 {
+    font-size: 9rem !important;
+  }
+
+  h2 {
+    font-size: 4.5rem !important;
+  }
+}
+
+@media (max-width: 1280px) {
+  body {
+    font-size: 1.6rem !important;
+  }
+
+  h1 {
+    font-size: 7rem !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 1.5rem !important;
+  }
+
+  h2 {
+    font-size: 4rem !important;
+  }
 }

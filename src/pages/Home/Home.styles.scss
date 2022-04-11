@@ -43,6 +43,7 @@
       @include backgroundImage;
       width: 9.6rem;
       height: 9.6rem;
+      cursor: pointer;
     }
   }
 
@@ -140,5 +141,84 @@
   &__button {
     @include centerBox;
     width: 100%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero {
+    padding-left: 9.6rem;
+
+    &__img {
+      width: 70%;
+
+      &-info {
+        width: 90%;
+      }
+    }
+  }
+
+  .categories {
+    &--left {
+      width: 20%;
+    }
+
+    &--right {
+      width: 80%;
+    }
+
+    &__card {
+      width: 23%;
+    }
+  }
+}
+
+@media (max-width: 1432px) {
+  .hero {
+    &--left {
+      width: 55%;
+    }
+
+    &__img {
+      &-info {
+        width: 120%;
+        bottom: -9.6rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 6.4rem;
+    gap: 6.4rem;
+
+    &--right {
+      width: 100%;
+    }
+
+    &--left {
+      width: 70%;
+      transform: translateY(0);
+    }
+
+    &__img {
+      width: 30%;
+
+      &-info {
+        width: 70%;
+        bottom: 50%;
+        transform: translateY(50%);
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    &--left {
+      width: 80%;
+    }
   }
 }

@@ -4,6 +4,7 @@ import Avvvatars from "avvvatars-react";
 import { m, useCycle } from "framer-motion";
 
 import Navbar from "../../components/Navbar/Navbar.component";
+import NavbarMobile from "../../components/Navbar/NavbarMobile.component";
 import HeadlineContainer from "../../components/HeadlineContainer/HeadlineContainer.component";
 import InputField from "../../components/InputField/InputField.component";
 import Carousel from "../../components/Carousel/Carousel.component";
@@ -40,7 +41,7 @@ const heroVariants = {
   visible: {
     opacity: 1,
     transition: {
-      delay: 2,
+      delay: 1.5,
       when: "beforeChildren",
     },
   },
@@ -49,15 +50,15 @@ const heroVariants = {
 const bookVariants = {
   hidden: {
     opacity: 0,
-    x: "20vw",
-    rotate: "-10deg",
+    x: "5vw",
+    rotate: "-10deg"
   },
   visible: {
     opacity: 1,
-    x: 0,
+    // x: 0,
     rotate: "21deg",
     transition: {
-      duration: 1.3,
+      duration: 1,
       ease: "easeInOut",
     },
   },
@@ -79,12 +80,6 @@ const doodleVariants = {
     },
   },
 };
-
-const categoryVariants = {
-  hover: {
-
-  }
-}
 
 const Home = () => {
   const [heroBookName, setHeroBookName] = useState("");
@@ -121,24 +116,24 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
+      {window.matchMedia("(max-width: 1024px)").matches ? (
+          <NavbarMobile />
+      ) : (
+          <Navbar />
+      )}
 
       {/* hero section */}
       <section className="hero">
-        {/* <m.div
+        <m.div
           variants={doodleVariants}
           animate={doodleAnimation}
           onAnimationComplete={() => cycleDoodleAnimation()}
           className="hero__doodle"
         >
           <img src={Doodle1} alt="background-decoration" />
-        </m.div> */}
+        </m.div>
 
         <div className="hero--left">
-          {/* <m.h1 variants={headlineVariants} initial="hidden" animate="visible">
-            Sách mới và hot
-          </m.h1> */}
-
           <HeadlineContainer text="Sách mới và hot" textSize="Large" />
 
           <div style={{ height: "1.6rem" }} />
@@ -162,18 +157,18 @@ const Home = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* <m.img
+          <m.img
             src={heroBookImg}
             alt="hero"
             className="hero__img"
             variants={bookVariants}
-          /> */}
-
-          <img
-            src={heroBookImg}
-            alt="hero"
-            className="hero__img"
           />
+
+          {/*<img*/}
+          {/*  src={heroBookImg}*/}
+          {/*  alt="hero"*/}
+          {/*  className="hero__img"*/}
+          {/*/>*/}
 
           <m.div transition={{ duration: 0.6 }} className="hero__img-info">
             <m.div
@@ -276,11 +271,14 @@ const Home = () => {
           </div>
 
           <div className="categories--right">
-            {BookList.slice(0, 6).map((book) => (
-              <div key={book.id} className="categories__card">
-                <BookCard data={book} />
-              </div>
-            ))}
+            {/*Hiển thị nhiều sách hơn ở màn lớn hơn*/}
+            {BookList.slice(0, window.matchMedia("(min-width: 1600px)").matches ? 8 : 6).map((book) => {
+              return (
+                  <div key={book.id} className="categories__card">
+                    <BookCard data={book} />
+                  </div>
+              )})
+            }
 
             <div style={{ height: "3.8rem" }} />
 
