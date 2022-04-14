@@ -175,13 +175,21 @@
       top: 4rem;
       right: 4rem;
       z-index: 21;
+
+      &-item {
+        display: flex;
+        gap: 1.6rem;
+        cursor: pointer;
+      }
     }
 
     &__icon {
-      position: fixed;
-      top: 4.8rem;
-      right: 4.8rem;
-      z-index: 22;
+      &.close {
+        position: fixed;
+        top: 4.8rem;
+        right: 4.8rem;
+        z-index: 22;
+      }
     }
   }
 }

@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import {m} from "framer-motion";
 
 import Logo from '../../assets/images/logo.svg';
+import Cart from '../../assets/icons/icon-shopping-bag.svg';
+import Notification from '../../assets/icons/icon-notification.svg';
+import Heart from '../../assets/icons/icon-heart--active.svg';
 import Chat from '../../assets/icons/icon-msg.svg';
 
 import {BookCategories} from "../../data/MockupData";
@@ -12,6 +15,7 @@ const navMenuVariants = {
     hidden: {
         width: '6.4rem',
         height: '6.4rem',
+        padding: 0,
         borderRadius: '50%',
         transition: {
             duration: 0.5
@@ -20,23 +24,55 @@ const navMenuVariants = {
     visible: {
         width: '100%',
         height: '100vh',
+        padding: '0 4.8rem',
         top: 0,
         right: 0,
         borderRadius: 0,
         transition: {
-            duration: 0.5
+            duration: 0.5,
+            staggerChildren: 2,
+            when: 'beforeChildren'
         }
+    }
+}
+
+const navMenuItemVariants = {
+    hidden: {
+        x: -120,
+        opacity: 0,
+        transition: {
+            duration: 0.1
+        }
+    },
+    visible: {
+        x: 0,
+        opacity: 1,
+        transition: {
+            delay: 0.4,
+            duration: 0.7
+        }
+    }
+}
+
+const navMenuListVariants = {
+    visible: {
+        opacity: 0,
+
     }
 }
 
 const NavbarMobile = () => {
     const [navActive, setNavActive] = useState(false);
+    const [bookListActive, setBookListActive] = useState(false);
 
     return (
         <div className='navbar'>
             <img src={Logo} alt="logo"/>
 
-            <div className={`navbar__icon ${navActive && 'active'}`} onClick={() => setNavActive(!navActive)}>
+            <div className={`navbar__icon close ${navActive && 'active'}`} onClick={() => {
+                setNavActive(!navActive);
+                setBookListActive(false);
+            }}>
                 <svg className="navbar__icon--burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
                     <path className="navbar__icon--line"
                           d="M 50,65 H 70 C 70,65 75,65.198488 75,70.762712 C 75,73.779026 74.368822,78.389831 66.525424,78.389831 C 22.092231,78.389831 -18.644068,-30.508475 -18.644068,-30.508475"/>
@@ -62,7 +98,67 @@ const NavbarMobile = () => {
                 animate={navActive ? 'visible' : 'hidden'}
                 className='navbar__drawer'
             >
+                <div style={{display: bookListActive ? 'none' : 'block'}}>
+                    <m.div
+                        variants={navMenuItemVariants}
+                        animate={navActive ? 'visible' : 'hidden'}
+                        className='navbar__drawer-item'
+                        onClick={() => setBookListActive(true)}
+                    >
+                        <div className='navbar__icon' style={{backgroundImage: `url(${Notification})`}}/>
+                        <h3>Danh mục sách</h3>
+                    </m.div>
 
+                    <m.div
+                        variants={navMenuItemVariants}
+                        animate={navActive ? 'visible' : 'hidden'}
+                        className='navbar__drawer-item'
+                    >
+                        <div className='navbar__icon' style={{backgroundImage: `url(${Notification})`}}/>
+                        <h3>Thông báo</h3>
+                    </m.div>
+
+                    <m.div
+                        variants={navMenuItemVariants}
+                        animate={navActive ? 'visible' : 'hidden'}
+                        className='navbar__drawer-item'
+                    >
+                        <div className='navbar__icon' style={{backgroundImage: `url(${Chat})`}}/>
+                        <h3>Tin nhắn</h3>
+                    </m.div>
+
+                    <m.div
+                        variants={navMenuItemVariants}
+                        animate={navActive ? 'visible' : 'hidden'}
+                        className='navbar__drawer-item'
+                    >
+                        <div className='navbar__icon' style={{backgroundImage: `url(${Heart})`}}/>
+                        <h3>Danh sách yêu thích</h3>
+                    </m.div>
+
+                    <m.div
+                        variants={navMenuItemVariants}
+                        animate={navActive ? 'visible' : 'hidden'}
+                        className='navbar__drawer-item'
+                    >
+                        <div className='navbar__icon' style={{backgroundImage: `url(${Cart})`}}/>
+                        <h3>Giỏ hàng</h3>
+                    </m.div>
+                </div>
+
+                <div style={{display: bookListActive ? 'block' : 'none'}}>
+                    {BookCategories.map((category, index) => {
+                        return (
+                            <m.div
+                                variants={navMenuItemVariants}
+                                animate={bookListActive ? 'visible' : 'hidden'}
+                                className='navbar__drawer-item'
+                            >
+                                <h3>{category}</h3>
+                            </m.div>
+                        )
+                    })}
+                </div>
             </m.div>
         </div>
     )
