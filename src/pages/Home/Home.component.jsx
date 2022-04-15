@@ -50,7 +50,7 @@ const heroVariants = {
 const bookVariants = {
   hidden: {
     opacity: 0,
-    x: "5vw",
+    // x: "5vw",
     rotate: "-10deg"
   },
   visible: {
@@ -133,6 +133,10 @@ const Home = () => {
           <img src={Doodle1} alt="background-decoration" />
         </m.div>
 
+        {/* <div className='hero__doodle'>
+        <img src={Doodle1} alt="background-decoration" />
+        </div> */}
+
         <div className="hero--left">
           <HeadlineContainer text="Sách mới và hot" textSize="Large" />
 
@@ -164,11 +168,11 @@ const Home = () => {
             variants={bookVariants}
           />
 
-          {/*<img*/}
-          {/*  src={heroBookImg}*/}
-          {/*  alt="hero"*/}
-          {/*  className="hero__img"*/}
-          {/*/>*/}
+          {/* <img
+          src={heroBookImg}
+          alt="hero"
+          className="hero__img"
+          /> */}
 
           <m.div transition={{ duration: 0.6 }} className="hero__img-info">
             <m.div

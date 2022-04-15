@@ -67,6 +67,26 @@ const Carousel = ({ data }) => {
     className: "carousel",
     nextArrow: <CarouselNextArrow />,
     prevArrow: <CarouselPrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1120,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 960,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ]
   };
 
   return (
