@@ -124,18 +124,18 @@ const Home = () => {
 
       {/* hero section */}
       <section className="hero">
-        <m.div
+        {/* <m.div
           variants={doodleVariants}
           animate={doodleAnimation}
           onAnimationComplete={() => cycleDoodleAnimation()}
           className="hero__doodle"
         >
           <img src={Doodle1} alt="background-decoration" />
-        </m.div>
+        </m.div> */}
 
-        {/* <div className='hero__doodle'>
+        <div className='hero__doodle'>
         <img src={Doodle1} alt="background-decoration" />
-        </div> */}
+        </div>
 
         <div className="hero--left">
           <HeadlineContainer text="Sách mới và hot" textSize="Large" />

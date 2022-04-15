@@ -98,6 +98,7 @@ const Carousel = ({ data }) => {
           <BookPopover key={index} data={book}>
             <div className="carousel__item">
               <img
+                  style={{cursor: 'pointer'}}
                   onClick={() => navigate(`/book-detail/${book.id}`)}
                   src={book.image} alt="book-thumbnail"
               />

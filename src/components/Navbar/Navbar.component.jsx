@@ -1,4 +1,5 @@
 import React from "react";
+import {useNavigate} from "react-router-dom";
 import { Menu, Dropdown } from "antd";
 import { m } from "framer-motion";
 import Avvvatars from "avvvatars-react";
@@ -31,9 +32,11 @@ const menu = (
 );
 
 const Navbar = ({ searchIncluded = false }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="navbar">
-      <img src={Logo} alt="logo"/>
+      <img style={{cursor: 'pointer'}} onClick={() => navigate('/')} src={Logo} alt="logo"/>
 
       <div className="navbar--main">
         {searchIncluded && <InputField inputType="search" />}
