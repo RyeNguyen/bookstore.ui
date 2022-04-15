@@ -54,13 +54,6 @@ const navMenuItemVariants = {
     }
 }
 
-const navMenuListVariants = {
-    visible: {
-        opacity: 0,
-
-    }
-}
-
 const NavbarMobile = () => {
     const [navActive, setNavActive] = useState(false);
     const [bookListActive, setBookListActive] = useState(false);

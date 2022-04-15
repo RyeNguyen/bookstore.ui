@@ -1,5 +1,5 @@
 import React from "react";
-
+import {useNavigate} from "react-router-dom";
 import Slider from "react-slick";
 
 import BookPopover from "../BookPopover/BookPopover.component";
@@ -54,6 +54,8 @@ const CarouselNextArrow = (props) => {
 };
 
 const Carousel = ({ data }) => {
+  const navigate = useNavigate();
+
   const carouselSettings = {
     dots: false,
     infinite: true,
@@ -75,7 +77,10 @@ const Carousel = ({ data }) => {
         {BookList.map((book, index) => (
           <BookPopover key={index} data={book}>
             <div className="carousel__item">
-              <img src={book.image} alt="book-thumbnail" />
+              <img
+                  onClick={() => navigate(`/book-detail/${book.id}`)}
+                  src={book.image} alt="book-thumbnail"
+              />
             </div>
           </BookPopover>
         ))}
