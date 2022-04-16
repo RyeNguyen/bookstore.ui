@@ -23,9 +23,9 @@ const menu = (
   <Menu>
     {BookCategories.map((category, index) => (
       <Menu.Item key={index}>
-        <a target="_blank" rel="noopener noreferrer" href="">
+        <div>
           {category}
-        </a>
+        </div>
       </Menu.Item>
     ))}
   </Menu>

@@ -8,6 +8,7 @@ import NavbarMobile from "../../components/Navbar/NavbarMobile.component";
 import HeadlineContainer from "../../components/HeadlineContainer/HeadlineContainer.component";
 import InputField from "../../components/InputField/InputField.component";
 import Carousel from "../../components/Carousel/Carousel.component";
+import Button from "../../components/Button/Button.component";
 import BookCard from "../../components/BookCard/BookCard.component";
 import BestSellerRow from "../../components/BestSellerRow/BestSellerRow.component";
 import Footer from "../../components/Footer/Footer.component";
@@ -287,7 +288,7 @@ const Home = () => {
             <div style={{ height: "3.8rem" }} />
 
             <div className="categories__button">
-              <button>Xem tất cả</button>
+              <Button buttonText='Xem tất cả'/>
             </div>
           </div>
         </div>

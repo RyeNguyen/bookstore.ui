@@ -6,6 +6,10 @@
   display: flex;
   gap: 20rem;
 
+  &--left {
+    position: relative;
+  }
+
   &--right {
     width: 100%;
   }
@@ -16,6 +20,13 @@
     &-container {
       height: 60rem;
     }
+  }
+
+  &__background {
+    position: absolute;
+    bottom: -15%;
+    left: -6.4rem;
+    z-index: -1;
   }
 
   &__header {
@@ -56,6 +67,46 @@
       font-weight: bold;
       color: $color-primary;
       line-height: 40px;
+    }
+  }
+
+  &__button {
+    &-container {
+      margin-top: 3.2rem;
+      display: flex;
+      align-items: center;
+      gap: 3.2rem;
+    }
+  }
+
+  &--bottom {
+    margin-top: 4rem;
+    margin-bottom: 9.6rem;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__description {
+    width: 50%;
+    padding: 4.8rem 4.8rem 4.8rem 6.4rem;
+    border-top: 1px solid $color-dark;
+
+    &-header {
+      font-weight: bold;
+      margin-bottom: 3.2rem !important;
+    }
+  }
+
+  &__reviews {
+    width: 50%;
+    height: 74rem;
+    padding: 4.8rem 6.4rem;
+    border-left: 1px solid $color-dark;
+    border-bottom: 1px solid $color-dark;
+
+    &-header {
+      font-weight: bold;
+      margin-bottom: 3.2rem !important;
     }
   }
 }

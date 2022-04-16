@@ -2,10 +2,14 @@ import React from "react";
 import Avvvatars from "avvvatars-react";
 import { Rate } from "antd";
 
+import Button from "../../components/Button/Button.component";
 import Navbar from "../../components/Navbar/Navbar.component";
 import NavbarMobile from "../../components/Navbar/NavbarMobile.component";
 
 import BookDemo6 from "../../assets/images/book-demo-6.jpg";
+import Cart from "../../assets/icons/icon-shopping-bag--add-light.svg";
+import Arrow from "../../assets/icons/icon-arrow--button.svg";
+import Bookshelf from "../../assets/images/bookshelf--small.png";
 
 import "./BookDetail.styles.scss";
 
@@ -25,8 +29,16 @@ const fakeBookDetail = {
   sellerId: "75e1f916-b554-11ec-b909-0242ac120002",
   sellerName: "Nhà sách Tuổi Trẻ",
   sellerImage: null,
-  rating: 4.8,
-  reviews: [],
+  rating: 3.5,
+  reviews: [
+    {
+      userId: "",
+      userName: "",
+      userImage: "",
+      rating: 5.0,
+      review: "",
+    },
+  ],
 };
 
 const BookDetail = () => {
@@ -49,6 +61,10 @@ const BookDetail = () => {
               alt="book-cover"
             />
           </div>
+
+          <div className="book-detail__background">
+            <img src={Bookshelf} alt="bookshelf-background" />
+          </div>
         </div>
 
         <div className="book-detail--right">
@@ -60,7 +76,7 @@ const BookDetail = () => {
           <div className="book-detail__info">
             <p>
               Tác giả:{" "}
-              <a style={{fontWeight: 'bold'}}>
+              <a style={{ fontWeight: "bold" }}>
                 <span>{fakeBookDetail.author}</span>
               </a>
             </p>
@@ -89,31 +105,38 @@ const BookDetail = () => {
                 )
               )}
             </div>
-            <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               Shop:{" "}
-              <a><span className="book-detail__seller">
-              {fakeBookDetail.sellerImage ? (
-                <div
-                  className="book-detail__seller-img"
-                  style={{
-                    backgroundImage: `url(${fakeBookDetail.sellerImage})`,
-                  }}
-                />
-              ) : (
-                <Avvvatars
-                  style="shape"
-                  size={24}
-                  value={fakeBookDetail.sellerName}
-                />
-              )}
-              <div className="book-detail__seller-name">
-                {fakeBookDetail.sellerName}
-              </div>
-                  </span></a>
+              <a>
+                <span className="book-detail__seller">
+                  {fakeBookDetail.sellerImage ? (
+                    <div
+                      className="book-detail__seller-img"
+                      style={{
+                        backgroundImage: `url(${fakeBookDetail.sellerImage})`,
+                      }}
+                    />
+                  ) : (
+                    <Avvvatars
+                      style="shape"
+                      size={24}
+                      value={fakeBookDetail.sellerName}
+                    />
+                  )}
+                  <div className="book-detail__seller-name">
+                    {fakeBookDetail.sellerName}
+                  </div>
+                </span>
+              </a>
             </div>
-            <div>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               Đánh giá:{" "}
-              <Rate allowHalf disabled defaultValue={fakeBookDetail.rating} />
+              <Rate
+                allowHalf
+                disabled
+                style={{ color: "#333" }}
+                defaultValue={fakeBookDetail.rating}
+              />
               {fakeBookDetail.rating}
             </div>
           </div>
@@ -124,9 +147,32 @@ const BookDetail = () => {
               {fakeBookDetail.price}đ
             </div>
           </div>
+
           <div>Số lượng: </div>
+
+          <div className="book-detail__button-container">
+            <Button
+              buttonText="Thêm vào giỏ hàng"
+              buttonIcon={Cart}
+              buttonType={true}
+            />
+            <Button buttonText="Mua ngay" buttonIcon={Arrow} />
+          </div>
         </div>
       </div>
+
+      <div className="book-detail--bottom">
+        <div className="book-detail__description">
+          <p className="book-detail__description-header">Giới thiệu sách</p>
+          <p>{fakeBookDetail.description}</p>
+        </div>
+
+        <div className="book-detail__reviews">
+          <p className="book-detail__reviews-header">Đánh giá</p>
+        </div>
+      </div>
+
+      RECOMMEND
     </>
   );
 };

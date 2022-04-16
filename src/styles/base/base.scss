@@ -5,7 +5,7 @@
 *::before {
   padding: 0;
   margin: 0;
-  box-sizing: inherit;
+  box-sizing: border-box;
   outline: none;
 }
 
@@ -51,23 +51,6 @@ input {
 
   &::placeholder {
     font-family: "Be Vietnam Pro", sans-serif !important;
-  }
-}
-
-button {
-  height: 4.8rem !important;
-  outline: none;
-  padding: 1.2rem 2.4rem !important;
-  background-image: $color-gradient !important;
-  background-color: transparent !important;
-  border: 1px solid $color-dark !important;
-  color: $color-dark !important;
-  font-size: 1.8rem !important;
-  font-family: "Be Vietnam Pro", sans-serif !important;
-  cursor: pointer;
-
-  &::after {
-    box-shadow: none !important;
   }
 }
 
@@ -135,13 +118,6 @@ a {
     display: inline-block;
     transition: transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
   }
-}
-
-.button--secondary {
-  background-image: none !important;
-  background-color: $color-dark !important;
-  color: $color-white !important;
-  border-color: $color-white !important;
 }
 
 .ant-dropdown {
