@@ -1,7 +1,7 @@
 @use "../../styles/abstracts/variables" as *;
 @use "../../styles/abstracts/mixins" as *;
 
-.button {
+button {
   // height: 4.8rem !important;
   min-height: 6.4rem;
   outline: none;
@@ -101,8 +101,8 @@
   &::before {
     content: "";
     background: $color-dark;
-    width: 120%;
-    left: -10%;
+    width: 140%;
+    left: -20%;
     transform: skew(30deg);
     transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
   }

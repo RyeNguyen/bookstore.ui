@@ -33,7 +33,7 @@ const underlineVariants = {
     }
 }
 
-const HeadlineContainer = ({ text, textSize }) => {
+const HeadlineContainer = ({ text, textSize = "Medium" }) => {
   return (
     <div className="headline__container">
       {textSize === "Large" ? (

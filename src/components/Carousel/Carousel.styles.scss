@@ -9,7 +9,7 @@
   &__background {
     width: 100%;
     position: absolute;
-    top: 2.4rem;
+    bottom: -33%;
     z-index: -1;
 
     img {
@@ -50,6 +50,34 @@
       &.prev {
         transform: rotate(180deg);
       }
+
+      &.next {
+        transform: rotate(0deg);
+      }
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .carousel {
+    &__background {
+      bottom: -35%;
+    }
+  }
+}
+
+@media (min-width: 1700px) {
+  .carousel {
+    &__background {
+      bottom: -38%;
+    }
+  }
+}
+
+@media (min-width: 1900px) {
+  .carousel {
+    &__background {
+      bottom: -40%;
     }
   }
 }

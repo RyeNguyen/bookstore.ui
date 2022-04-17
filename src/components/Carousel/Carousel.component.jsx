@@ -47,7 +47,7 @@ const CarouselNextArrow = (props) => {
       <img
         src={CarouselArrow}
         alt="next-arrow"
-        className="carousel__button-icon"
+        className="carousel__button-icon next"
       />
     </button>
   );
