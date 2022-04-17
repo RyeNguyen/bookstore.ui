@@ -5,6 +5,8 @@ import { Rate } from "antd";
 import Button from "../../components/Button/Button.component";
 import Navbar from "../../components/Navbar/Navbar.component";
 import NavbarMobile from "../../components/Navbar/NavbarMobile.component";
+import UserComment from "../../components/UserComment/UserComment.component";
+import Carousel from "../../components/Carousel/Carousel.component";
 
 import BookDemo6 from "../../assets/images/book-demo-6.jpg";
 import Cart from "../../assets/icons/icon-shopping-bag--add-light.svg";
@@ -32,11 +34,35 @@ const fakeBookDetail = {
   rating: 3.5,
   reviews: [
     {
-      userId: "",
-      userName: "",
-      userImage: "",
+      userId: "550310b1-d7f0-4755-835a-7f251dbe4b8e",
+      userName: "Kristin Watson",
+      userImage:
+        "https://images.unsplash.com/photo-1644982647711-9129d2ed7ceb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
       rating: 5.0,
-      review: "",
+      comment: "Sách hay, bìa đẹp, giá phải chăng. Sẽ ủng hộ shop thêm :D",
+    },
+    {
+      userId: "d340276e-4743-4dd9-8247-04537c7ec39f",
+      userName: "Darlene Robertson",
+      userImage:
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      rating: 3.5,
+      comment: "Sách ok lắm nhé mn, shop đóng gói kỹ quá gỡ mãi mới xong :) ",
+    },
+    {
+      userId: "389de15c-b88b-4063-aa72-e81c7a51b746",
+      userName: "Bessie Cooper",
+      userImage: null,
+      rating: 4.5,
+      comment: "shop thân thiện, tư vấn nhiệt tình mỗi tội ship hơi lâu",
+    },
+    {
+      userId: "1960ff4e-af07-4656-8f83-a6e3e936d715",
+      userName: "Devon Lane",
+      userImage: null,
+      rating: 4.0,
+      comment:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
   ],
 };
@@ -51,7 +77,6 @@ const BookDetail = () => {
       ) : (
         <Navbar />
       )}
-
       <div className="book-detail">
         <div className="book-detail--left">
           <div className="book-detail__image-container">
@@ -137,7 +162,7 @@ const BookDetail = () => {
                 style={{ color: "#333" }}
                 defaultValue={fakeBookDetail.rating}
               />
-              {fakeBookDetail.rating}
+              ({fakeBookDetail.reviews.length})
             </div>
           </div>
 
@@ -160,7 +185,6 @@ const BookDetail = () => {
           </div>
         </div>
       </div>
-
       <div className="book-detail--bottom">
         <div className="book-detail__description">
           <p className="book-detail__description-header">Giới thiệu sách</p>
@@ -168,11 +192,23 @@ const BookDetail = () => {
         </div>
 
         <div className="book-detail__reviews">
-          <p className="book-detail__reviews-header">Đánh giá</p>
+          <p className="book-detail__reviews-header">
+            Đánh giá ({fakeBookDetail.reviews.length})
+          </p>
+
+          {fakeBookDetail.reviews.map((review) => (
+            <UserComment
+              key={review.userId}
+              name={review.userName}
+              image={review.userImage}
+              rating={review.rating}
+              comment={review.comment}
+            />
+          ))}
         </div>
       </div>
-
-      RECOMMEND
+      
+      <Carousel/>
     </>
   );
 };

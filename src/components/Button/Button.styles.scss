@@ -1,7 +1,7 @@
 @use "../../styles/abstracts/variables" as *;
 @use "../../styles/abstracts/mixins" as *;
 
-button {
+.button {
   // height: 4.8rem !important;
   min-height: 6.4rem;
   outline: none;
@@ -91,6 +91,8 @@ button {
   color: $color-white !important;
   border-color: $color-white !important;
   overflow: hidden;
+  background-image: none;
+  background-color: $color-white;
 
   span {
     position: relative;

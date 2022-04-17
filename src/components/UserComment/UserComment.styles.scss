@@ -1,0 +1,28 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-bottom: 4.8rem;
+
+    &__user {
+        &-info {
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+
+            &--right {
+                font-size: 1.4rem !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        &-img {
+            @include iconExtraLarge;
+            border-radius: 50%;
+        }
+    }
+}
