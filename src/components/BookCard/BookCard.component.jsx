@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 import Avvvatars from 'avvvatars-react';
 
 import TiltContainer from '../TiltContainer/TiltContainer.component';
@@ -23,17 +23,21 @@ const BookCard = (book) => {
 
                 <div className="card__title">{book.data.name}</div>
 
-                <div className="card__author">{book.data.author}</div>
+                <div className="card__author"><Link to='#'><span>{book.data.author}</span></Link></div>
 
                 <div style={{height: "1.6rem"}}/>
 
                 <div className="card__seller">
-                    {book.data.sellerImage ? (
+                    <Link to='#'>
+                        <span>
+                        {book.data.sellerImage ? (
                         <div className="card__seller-img" style={{backgroundImage: `url(${book.data.sellerImage})`}}/>
                     ) : (
                         <Avvvatars style="shape" size={24} value={book.data.sellerName}/>
                     )}
                     <div className="card__seller-name">{book.data.sellerName}</div>
+                        </span>
+                    </Link>
                 </div>
 
                 <div className="card__price">{book.data.price}đ</div>

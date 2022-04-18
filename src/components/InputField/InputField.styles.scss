@@ -24,6 +24,7 @@
 
   &__button {
     @include centerBox;
+    min-height: 4.8rem !important;
     min-width: 18rem;
     gap: 8px;
     transform: translateX(-1px);

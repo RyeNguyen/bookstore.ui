@@ -275,13 +275,13 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="categories--right">
+          <m.div transition={{staggerChildren: 2}} className="categories--right">
             {/*Hiển thị nhiều sách hơn ở màn lớn hơn*/}
             {BookList.slice(0, window.matchMedia("(min-width: 1600px)").matches ? 8 : 6).map((book) => {
               return (
-                  <div key={book.id} className="categories__card">
+                  <m.div variants={subHeadlineVariants} initial='hidden' animate='visible' key={book.id} className="categories__card">
                     <BookCard data={book} />
-                  </div>
+                  </m.div>
               )})
             }
 
@@ -290,7 +290,7 @@ const Home = () => {
             <div className="categories__button">
               <Button buttonText='Xem tất cả'/>
             </div>
-          </div>
+          </m.div>
         </div>
       </section>
 
