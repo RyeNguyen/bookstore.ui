@@ -5,6 +5,7 @@ import {Rate} from "antd";
 import Button from "../../components/Button/Button.component";
 import Navbar from "../../components/Navbar/Navbar.component";
 import NavbarMobile from "../../components/Navbar/NavbarMobile.component";
+import NumberBox from "../../components/NumberBox/NumberBox.component";
 import UserComment from "../../components/UserComment/UserComment.component";
 import Carousel from "../../components/Carousel/Carousel.component";
 import HeadlineContainer from "../../components/HeadlineContainer/HeadlineContainer.component";
@@ -177,7 +178,7 @@ const BookDetail = () => {
                         </div>
                     </div>
 
-                    <div>Số lượng:</div>
+                    <div>Số lượng: <NumberBox/></div>
 
                     <div className="book-detail__button-container">
                         <Button

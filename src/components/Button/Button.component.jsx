@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Button.styles.scss";
 
-const Button = ({ buttonText, buttonIcon, buttonType }) => {
+const Button = ({ buttonText, buttonIcon, buttonType = false }) => {
   return (
     <button className={buttonType ? "button--secondary" : "button--primary"}>
       <span>

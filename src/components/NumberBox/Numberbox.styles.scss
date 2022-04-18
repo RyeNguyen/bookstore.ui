@@ -1,0 +1,14 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.number-box {
+  button {
+    width: 3.2rem;
+    min-height: 3.2rem;
+    padding: 0 !important;
+
+    span {
+      @include centerBox;
+    }
+  }
+}
