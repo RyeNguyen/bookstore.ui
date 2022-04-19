@@ -8,7 +8,7 @@ const NumberBox = () => {
     return (
         <div className='number-box'>
             <Button buttonText='-'/>
-            <input type="text"/>
+            <input className='number-box__input' type="text"/>
             <Button buttonText='+'/>
         </div>
     )

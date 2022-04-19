@@ -220,5 +220,62 @@
     &--left {
       width: 80%;
     }
+
+    &__img {
+      &-button {
+        width: 6.4rem;
+        height: 6.4rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    &--left {
+      width: 100%;
+    }
+
+    &__img {
+      width: 40%;
+
+      &-info {
+        padding: 3.2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 3.2rem;
+
+    &__img {
+      width: 50%;
+
+      &-info {
+        width: 70%;
+        top: 0;
+        right: -3.2rem;
+        padding: 1.6rem;
+        bottom: 0;
+        transform: translateY(0);
+
+        &--left {
+          width: 100%;
+        }
+
+        &--right {
+          position: absolute;
+          bottom: -6.4rem;
+          left: 0;
+        }
+      }
+
+      &-button {
+        width: 4.8rem;
+        height: 4.8rem;
+      }
+    }
   }
 }

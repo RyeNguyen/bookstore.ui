@@ -86,3 +86,18 @@ h3 {
     font-size: 4rem !important;
   }
 }
+
+@media (max-width: 640px) {
+  body {
+    font-size: 1.4rem !important;
+  }
+
+  h1, h2 {
+    font-size: 4rem !important;
+    line-height: 5rem;
+  }
+
+  h3 {
+    font-size: 2rem !important;
+  }
+}

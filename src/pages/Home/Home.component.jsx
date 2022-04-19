@@ -65,6 +65,21 @@ const bookVariants = {
   },
 };
 
+const mobileBookVariants = {
+  hidden: {
+    opacity: 0,
+    x: '-30vw'
+  },
+  visible: {
+    opacity: 1,
+    x: '-12vw',
+    transition: {
+      duration: 1,
+      ease: "easeInOut",
+    },
+  }
+}
+
 const doodleVariants = {
   animationOne: {
     opacity: 0.5,
@@ -81,6 +96,32 @@ const doodleVariants = {
     },
   },
 };
+
+const categoriesVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      when: 'beforeChildren',
+      delayChildren: 0.2,
+      staggerChildren: 0.2
+    }
+  }
+}
+
+const categoriesItemVariants = {
+  hidden: {
+    y: '4rem',
+    opacity: 0
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      duration: 0.7
+    }
+  }
+}
 
 const Home = () => {
   const [heroBookName, setHeroBookName] = useState("");
@@ -166,14 +207,8 @@ const Home = () => {
             src={heroBookImg}
             alt="hero"
             className="hero__img"
-            variants={bookVariants}
+            variants={window.matchMedia("(max-width: 1024px)").matches ? mobileBookVariants : bookVariants}
           />
-
-          {/* <img
-          src={heroBookImg}
-          alt="hero"
-          className="hero__img"
-          /> */}
 
           <m.div transition={{ duration: 0.6 }} className="hero__img-info">
             <m.div
@@ -275,11 +310,17 @@ const Home = () => {
             ))}
           </div>
 
-          <m.div transition={{staggerChildren: 2}} className="categories--right">
+          <m.div
+              variants={categoriesVariants}
+              initial='hidden'
+              whileInView='visible'
+              viewport={{ once: true }}
+              className="categories--right"
+          >
             {/*Hiển thị nhiều sách hơn ở màn lớn hơn*/}
             {BookList.slice(0, window.matchMedia("(min-width: 1600px)").matches ? 8 : 6).map((book) => {
               return (
-                  <m.div variants={subHeadlineVariants} initial='hidden' animate='visible' key={book.id} className="categories__card">
+                  <m.div variants={categoriesItemVariants} key={book.id} className="categories__card">
                     <BookCard data={book} />
                   </m.div>
               )})

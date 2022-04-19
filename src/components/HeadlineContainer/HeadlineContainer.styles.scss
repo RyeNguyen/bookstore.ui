@@ -6,6 +6,7 @@
     z-index: 1;
 
     &__container {
+        display: inline-block;
         width: auto;
         position: relative;
     }
@@ -17,5 +18,15 @@
         left: -4px;
         background-image: $color-gradient--reverse;
         z-index: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .headline {
+        &__decoration {
+            width: 85%;
+            height: 1.6rem;
+            bottom: 0 !important;
+        }
     }
 }

@@ -18,7 +18,10 @@ const navMenuVariants = {
         padding: 0,
         borderRadius: '50%',
         transition: {
-            duration: 0.5
+            duration: 0.3,
+            staggerChildren: 2,
+            delayChildren: 0.4,
+            when: 'beforeChildren'
         }
     },
     visible: {
@@ -29,8 +32,9 @@ const navMenuVariants = {
         right: 0,
         borderRadius: 0,
         transition: {
-            duration: 0.5,
+            duration: 0.3,
             staggerChildren: 2,
+            delayChildren: 0.4,
             when: 'beforeChildren'
         }
     }
@@ -38,6 +42,7 @@ const navMenuVariants = {
 
 const navMenuItemVariants = {
     hidden: {
+        display: 'none',
         x: -120,
         opacity: 0,
         transition: {
@@ -45,6 +50,7 @@ const navMenuItemVariants = {
         }
     },
     visible: {
+        display: 'flex',
         x: 0,
         opacity: 1,
         transition: {
